@@ -13,7 +13,6 @@ def user(nick):
     res = requests.get(url)
     #http_respone 200 means OK status
     if res.status_code == 200:
-        print('Success!')
 
         info = str(bs.BeautifulSoup(urllib.request.urlopen(url).read(), 'lxml'))
 
@@ -52,4 +51,13 @@ def user(nick):
     # http_response 500 server error
     elif res.status_code == 500:
         print('Server dead.')
+
+def champSearch(champName):
+    chmpInfo = []
+    # the target we want to open
+    url = 'https://u.gg/lol/champions/'+champName+'/build'
+    res = requests.get(url)
+    # http_respone 200 means OK status
+    if res.status_code == 200:
+        print('Success!')
 
